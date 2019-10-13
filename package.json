@@ -2,6 +2,7 @@
   "name": "movies-react-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://AnasBoulmane.github.io/movies-react-app",
   "dependencies": {
     "react": "^16.10.2",
     "react-dom": "^16.10.2"
