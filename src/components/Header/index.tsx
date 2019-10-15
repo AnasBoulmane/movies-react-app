@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Header = () => (
   <header>
-    <nav className="flex items-center justify-between flex-wrap p-6">
+    <nav className="flex items-center justify-between flex-wrap p-6 pb-3">
       <div className="flex items-center flex-shrink-0 text-black mr-6">
         <div className="bg-yellow-500 rounded px-3 py-1">
           <span className="font-sans font-black tracking-tighter text-xl">IMDb</span>
@@ -16,17 +16,17 @@ export const Header = () => (
           </svg>
         </button>
       </div>
-      <div className="w-full block flex-grow md:flex md:items-center md:w-auto">
-        <div className="text-sm md:flex-grow">
-          <a href="#responsive-header" className="font-rubik font-medium block mt-4 md:inline-block md:mt-0 text-black hover:text-gray-800 mr-4">
+      <div className="w-full block flex-grow md:flex md:flex-row-reverse md:items-center md:w-auto">
+        <div className="text-sm md:w-3/4">
+          <a href="#responsive-header" className="font-rubik font-medium block mt-4 md:inline-block md:mt-0 text-black hover:text-gray-600 md:mr-8">
             <span>Movies</span>
             <i className="icon font-bold ion-ios-arrow-down ml-3"/>
           </a>
-          <a href="#responsive-header" className="font-rubik font-medium block mt-4 md:inline-block md:mt-0 text-black hover:text-gray-800 mr-4">
+          <a href="#responsive-header" className="font-rubik font-medium block mt-4 md:inline-block md:mt-0 text-black hover:text-gray-600 md:ml-4 md:mr-8">
             <span>TV Show</span>
             <i className="icon font-bold ion-ios-arrow-down ml-3"/>
           </a>
-          <a href="#responsive-header" className="font-rubik font-medium block mt-4 md:inline-block md:mt-0 text-black hover:text-gray-800 mr-4">
+          <a href="#responsive-header" className="font-rubik font-medium block mt-4 md:inline-block md:mt-0 text-black hover:text-gray-600 md:ml-4 md:mr-8">
             <span>Celebs, Events & Photos</span>
             <i className="icon font-bold ion-ios-arrow-down ml-3"/>
           </a>

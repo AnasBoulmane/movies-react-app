@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  min-height: 500vh;
 }
 
 .App-logo {
@@ -20,4 +19,21 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+.explore-page {
+  position: relative;
+  max-height: calc(100vh - 100px);
+  overflow: auto;
+}
+
+.explore-page:before {
+  content: '';
+  display: block;
+  background: linear-gradient(white, transparent);
+  position: fixed;
+  top: 86px;
+  left: calc(25vw + 20px);
+  right: 30px;
+  height: 26px;
 }
