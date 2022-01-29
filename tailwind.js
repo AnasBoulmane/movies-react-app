@@ -1,4 +1,7 @@
 module.exports = {
+  content: [
+    './src/components/**/*.{html,js,tsx}',
+  ],
   prefix: '',
   important: false,
   separator: ':',

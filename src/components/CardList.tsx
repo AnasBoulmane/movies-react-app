@@ -1,9 +1,30 @@
 import React from 'react';
-import './App.css';
-import { Header } from "../Header";
-import { Sidebar } from "../Sidebar";
 
-const Props = {
+interface Props {
+  title: string
+  items: any[]
+}
+
+export const CardList: React.FC<Props> = ({ title, items }) => (
+  <>
+    <h2 className="font-rubik font-semibold text-3xl text-left leading-none mb-5">
+      {title}
+    </h2>
+    {/* movies section */}
+    <div className="flex flex-wrap mb-12 -mx-2">
+      {items.map(({ title, poster_path }: any) => (
+        <div className="card p-2 w-1/4">
+          <img
+            className="w-full rounded-2lg"
+            src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${poster_path}`}
+            alt={title} />
+        </div>
+      ))}
+    </div>
+  </>
+);
+
+export const CardListTestData = {
   sections: [{
     title: 'now playing',
     open: false,
@@ -218,63 +239,3 @@ const Props = {
     items: []
   }]
 };
-
-const Index: React.FC = () => {
-  return (
-    <div className="App">
-      <Header />
-      <div className="flex flex-wrap p-3">
-        <Sidebar sections={Props.sections}/>
-        <div className="explore-page flex-grow md:py-6 md:px-10 w-0">
-          <h2 className="font-rubik font-semibold text-4xl text-left leading-none mb-5">Explore</h2>
-          {/* search bar & filters */}
-          <div className="flex my-8">
-            <input
-              type="text"
-              className="flex-grow w-0 bg-gray-100 font-rubik text-sm text-gray-600 md:px-4 md:h-12 md:rounded-2lg"
-              placeholder="Search for a movie, tv show, person..."
-            />
-          </div>
-          {/* news & video section */}
-          <div className="flex flex-wrap mt-8 mb-12 -mx-2">
-            <div className="card p-2 w-3/8">
-              <img className="w-full rounded-2lg" src="https://image.tmdb.org/t/p/w1066_and_h600_bestv2/2V5RR4Ps1i4x7ifjjDvlmrSYzvL.jpg" alt="" />
-            </div>
-            <div className="card p-2 w-1/4">
-              <img className="w-full rounded-2lg" src="https://image.tmdb.org/t/p/w1066_and_h600_bestv2/2V5RR4Ps1i4x7ifjjDvlmrSYzvL.jpg" alt="" />
-            </div>
-            <div className="card p-2 w-1/4">
-              <img className="w-full rounded-2lg" src="https://image.tmdb.org/t/p/w1066_and_h600_bestv2/2V5RR4Ps1i4x7ifjjDvlmrSYzvL.jpg" alt="" />
-            </div>
-            <div className="card p-2 w-1/8">
-              <img className="w-full rounded-2lg" src="https://image.tmdb.org/t/p/w1066_and_h600_bestv2/2V5RR4Ps1i4x7ifjjDvlmrSYzvL.jpg" alt="" />
-            </div>
-          </div>
-          {/* news & video section */}
-          <h2 className="font-rubik font-semibold text-3xl text-left leading-none mb-5">
-            <span className="text-gray-500">Poll:</span> Top Movies 2019
-          </h2>
-          {/* movies section */}
-          <div className="flex flex-wrap mb-12 -mx-2">
-            {
-              (Props.sections[1].items as any).map(({
-                                             title,
-                                             poster_path
-                                           }: any) => (
-                <div className="card p-2 w-1/3">
-                  <img
-                    className="w-full rounded-2lg"
-                    src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${poster_path}`}
-                    alt={title}
-                  />
-                </div>
-              ))
-            }
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default Index;
