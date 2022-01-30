@@ -23,9 +23,9 @@ const Index: React.FC = () => {
           </div>
           <Routes>
             <Route path="/" >
-              <Route index element={<Discover category="movie" />} />
-              <Route path="tv" element={<Discover category="tv" />} />
-              <Route path="movies" element={<Discover category="movie" />} />
+              <Route index element={<Discover title="Popular Movies" category="movie" />} />
+              <Route path="tv" element={<Discover title="Popular TV Shows" category="tv" />} />
+              <Route path="movies" element={<Discover title="Popular Movies" category="movie" />} />
             </Route>
             <Route path="/search/:category" element={<CardList title="Top Movies 2021" items={CardListTestData.sections[0].items} />} />
           </Routes>
