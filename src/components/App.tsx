@@ -1,8 +1,11 @@
 import React from 'react';
+import { Routes, Route, useParams } from "react-router-dom";
 import { CardList, CardListTestData } from './CardList';
+import { Discover } from './Discover';
 import { Header } from "./Header";
 
 const Index: React.FC = () => {
+  const { category = 'movie' } = useParams();
   return (
     <div className="App">
       <Header />
@@ -18,8 +21,14 @@ const Index: React.FC = () => {
               placeholder="Search for a movie, tv show, person..."
             />
           </div>
-          {/* news & video section */}
-          <CardList title="Top Movies 2019" items={CardListTestData.sections[0].items} />
+          <Routes>
+            <Route path="/" >
+              <Route index element={<Discover category="movie" />} />
+              <Route path="tv" element={<Discover category="tv" />} />
+              <Route path="movies" element={<Discover category="movie" />} />
+            </Route>
+            <Route path="/search/:category" element={<CardList title="Top Movies 2021" items={CardListTestData.sections[0].items} />} />
+          </Routes>
         </div>
       </div>
     </div>

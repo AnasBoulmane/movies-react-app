@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 export const Header = () => (
   <header>
@@ -18,23 +19,23 @@ export const Header = () => (
       </div>
       <div className="w-full block flex-grow md:flex md:flex-row-reverse md:items-center md:w-auto">
         <div className="text-sm md:w-3/4">
-          <a
-            href="#responsive-header"
+          <Link
+            to="/"
             className="font-rubik font-medium block mt-4 md:inline-block md:mt-0 text-black hover:text-gray-600 md:mr-8"
           >
             <span>Movies</span>
-            <i className="icon font-bold ion-ios-arrow-down ml-3"/>
-          </a>
-          <a
-            href="#responsive-header"
+            <i className="icon font-bold ion-ios-arrow-down ml-3" />
+          </Link>
+          <Link
+            to="/tv"
             className="font-rubik font-medium block mt-4 md:inline-block md:mt-0 text-black hover:text-gray-600 md:ml-4 md:mr-8"
           >
             <span>TV Show</span>
-            <i className="icon font-bold ion-ios-arrow-down ml-3"/>
-          </a>
+            <i className="icon font-bold ion-ios-arrow-down ml-3" />
+          </Link>
           <a href="#responsive-header" className="font-rubik font-medium block mt-4 md:inline-block md:mt-0 text-black hover:text-gray-600 md:ml-4 md:mr-8">
             <span>Celebs, Events & Photos</span>
-            <i className="icon font-bold ion-ios-arrow-down ml-3"/>
+            <i className="icon font-bold ion-ios-arrow-down ml-3" />
           </a>
         </div>
       </div>
