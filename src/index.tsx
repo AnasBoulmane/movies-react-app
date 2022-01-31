@@ -6,7 +6,13 @@ import './assets/styles/tailwind.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 
-const fetcher = (resource: string, init: any) => fetch(`https://api.themoviedb.org/3${resource}&api_key=434a64c510c931599a1d5dcfcc33447b`, init).then(res => res.json())
+const fetcher = (resource: string, init: any) => fetch(`https://api.themoviedb.org/3${resource}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.REACT_APP_NOT_SECRET_TOKEN}`,
+    ...(init?.headers || {})
+  },
+  ...init
+}).then(res => res.json())
 
 ReactDOM.render(
   <BrowserRouter>

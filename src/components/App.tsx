@@ -1,35 +1,37 @@
 import React from 'react';
-import { Routes, Route, useParams } from "react-router-dom";
-import { CardList, CardListTestData } from './CardList';
+import { Routes, Route } from "react-router-dom";
 import { Discover } from './Discover';
 import { Header } from "./Header";
+import { SearchInput } from './SearchInput';
+import { SearchResults } from './SearchResults';
 
 const Index: React.FC = () => {
-  const { category = 'movie' } = useParams();
+
   return (
     <div className="App">
       <Header />
       <div className="flex flex-wrap p-3">
-        {/* <Sidebar sections={Props.sections}/> */}
+        {/* search sections */}
         <div className="explore-page flex-grow md:py-6 md:px-10 w-0">
-          <h2 className="font-rubik font-semibold text-4xl text-left leading-none mb-5">Explore</h2>
-          {/* search bar & filters */}
-          <div className="flex my-8">
-            <input
-              type="text"
-              className="flex-grow w-0 bg-gray-100 font-rubik text-sm text-gray-600 md:px-4 md:h-12 md:rounded-2lg"
-              placeholder="Search for a movie, tv show, person..."
-            />
-          </div>
+          <Routes>
+            <Route path="/" >
+              <Route index element={<SearchInput />} />
+              <Route path="tv" element={<SearchInput />} />
+              <Route path="movies" element={<SearchInput />} />
+            </Route>
+            <Route path="/search" element={<SearchInput />} />
+          </Routes>
+
           <Routes>
             <Route path="/" >
               <Route index element={<Discover title="Popular Movies" category="movie" />} />
               <Route path="tv" element={<Discover title="Popular TV Shows" category="tv" />} />
               <Route path="movies" element={<Discover title="Popular Movies" category="movie" />} />
             </Route>
-            <Route path="/search/:category" element={<CardList title="Top Movies 2021" items={CardListTestData.sections[0].items} />} />
+            <Route path="/search" element={<SearchResults />} />
           </Routes>
         </div>
+        {/* end/search sections */}
       </div>
     </div>
   );
