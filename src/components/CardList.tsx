@@ -13,11 +13,13 @@ export const CardList: React.FC<Props> = ({ title, items }) => (
     </h2>
     {/* movies section */}
     <div className="flex flex-wrap mb-12 -mx-2">
-      {items.map(({ title, poster_path }: any) => (
+      {items.map(({ id, title, poster_path, media_type }: any) => (
         <Card
-          key={title}
+          id={id}
+          key={id}
           title={title}
           image={poster_path}
+          type={media_type !== 'movie' ? media_type : 'movies'}
         />
       ))}
     </div>

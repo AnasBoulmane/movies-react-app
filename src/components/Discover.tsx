@@ -10,7 +10,7 @@ interface Props {
 const getApiURL = (category: string) => (pageIndex: number) => `/discover/${category}?page=${pageIndex + 1}`
 
 export const Discover: React.FC<Props> = ({ title, category }) => {
-  const { data = [], size, setSize }: any = useSWRInfinite(getApiURL(category))
+  const { data = [], size, setSize } = useSWRInfinite<any>(getApiURL(category))
   const items = data.map?.(({ results }: { results: any[] }) => results)?.flat()
 
   const loadMore = () => setSize(size + 1)
